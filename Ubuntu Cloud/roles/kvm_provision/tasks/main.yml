@@ -43,6 +43,10 @@
     include_role:
       name: netplan
 
+  - name: SSH
+    include_role:
+      name: ssh fix
+
   - name: Define vm
     community.libvirt.virt:
       command: define
