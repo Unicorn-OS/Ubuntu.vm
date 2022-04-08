@@ -9,6 +9,3 @@
   command: |
     virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
     --copy-in /tmp/config.yaml:/etc/netplan/
-
-# Not even necessary! applies on firstboot.
-#    --firstboot-command 'netplan apply'
