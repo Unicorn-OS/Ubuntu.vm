@@ -4,7 +4,7 @@ base_image_name: focal-server-cloudimg-amd64.img
 base_image_url: https://cloud-images.ubuntu.com/focal/current/{{ base_image_name }}
 base_image_sha: 5f082580a95ba7bec83fd34670c8fb53709b68fb147ea5c4f7cf24f1007e6f3f
 libvirt_pool_dir: "/var/lib/libvirt/images"
-vm_name: ubuntuLTS-1
+vm_name: ubuntufocal-1
 vm_vcpus: 2
 vm_ram_mb: 2048
 vm_net: default

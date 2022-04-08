@@ -1,4 +1,4 @@
-virsh domifaddr f34-lab01
+virsh domifaddr ubuntufocal-1
 
 ip=$(virsh domifaddr f34-lab01 | grep )
 

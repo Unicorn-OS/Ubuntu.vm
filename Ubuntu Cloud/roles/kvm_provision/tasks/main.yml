@@ -39,6 +39,10 @@
       --ssh-inject 'root:file:{{ ssh_key }}'
     when: copy_results is changed
 
+  - name: Network
+    include_role:
+      name: netplan
+
   - name: Define vm
     community.libvirt.virt:
       command: define
