@@ -5,7 +5,8 @@
 - name: Resize in vm
   command: |
     virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
-    --run-command 'growpart /dev/vda 1 && \
-    resize2fs /dev/vda1'
+    --run-command 'growpart /dev/sda 1' \
+    --run-command 'resize2fs /dev/sda1'
 
-#    --install cloud-initramfs-growroot
+# virt-customize uses 'sda1', a regular boot uses vda1
+#    --run-command 'lsblk > /root/blk'
