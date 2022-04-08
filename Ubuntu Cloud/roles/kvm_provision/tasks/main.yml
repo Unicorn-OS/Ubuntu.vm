@@ -39,13 +39,9 @@
       --ssh-inject 'root:file:{{ ssh_key }}'
     when: copy_results is changed
 
-  - name: Network
+  - name: OS specific Differences
     include_role:
-      name: netplan
-
-  - name: SSH
-    include_role:
-      name: ssh fix
+      name: this
 
   - name: Define vm
     community.libvirt.virt:
