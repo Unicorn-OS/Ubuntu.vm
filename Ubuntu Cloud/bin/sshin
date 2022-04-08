@@ -1,0 +1,5 @@
+virsh domifaddr f34-lab01
+
+ip=$(virsh domifaddr f34-lab01 | grep )
+
+ssh root@ip

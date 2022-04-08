@@ -1,0 +1,3 @@
+[submodule "Ubuntu Cloud/.this/dependency/KVM.Hyperion"]
+	path = Ubuntu Cloud/.this/dependency/KVM.Hyperion
+	url = https://github.com/Unicorn-OS/KVM.Hyperion.git
