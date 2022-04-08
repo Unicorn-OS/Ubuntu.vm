@@ -1,8 +1,8 @@
 ---
 - name: Resize Disk
-  command: "qemu-img resize {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 +64G"
+  command: "qemu-img resize {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 64G"
 
-- name: Resize in vm - cloud-initramfs-growroot
-  command: |
-    virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
-    --install cloud-initramfs-growroot
+# - name: Resize in vm - cloud-initramfs-growroot
+#   command: |
+#     virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
+#     --install cloud-initramfs-growroot
