@@ -1,0 +1,14 @@
+# - name: Get VMs list
+#   community.libvirt.virt:
+#     command: list_vms
+#   register: existing_vms
+#   changed_when: no
+#
+# - name: Destroy VM
+#   block:
+#   - name: list only running VMs
+#     community.libvirt.virt:
+#       command: destroy
+#       state: running
+#
+#   when: "vm_name in existing_vms.list_vms"

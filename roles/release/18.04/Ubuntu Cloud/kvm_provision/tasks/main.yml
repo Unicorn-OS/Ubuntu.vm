@@ -1,4 +1,5 @@
 ---
+
 # tasks file for kvm_provision
 - name: Ensure requirements in place
   package:
@@ -13,6 +14,11 @@
     command: list_vms
   register: existing_vms
   changed_when: no
+
+- debug:
+    msg: '{{ state }} {{ vm_name }} in {{existing_vms.list_vms}}'
+  # when: ("vm_name not in existing_vms.list_vms") and (state == "created")
+
 
 - name: Create VM if not exists
   block:
@@ -43,13 +49,14 @@
 
   - name: OS specific Configuration & Fixes
     include_role:
-      name: '{{ vers }}/{{ source }}/this/configure'
+      name: 'release/{{ vers }}/{{ source }}/this/configure'
 
   - name: Define vm
     community.libvirt.virt:
       command: define
       xml: "{{ lookup('template', 'vm-template.xml.j2') }}"
-  when: "vm_name not in existing_vms.list_vms"
+  # when: false
+  when: ( vm_name not in existing_vms.list_vms ) and ( (state == "created") or (state == "started") )
 
 - name: Ensure VM is started
   community.libvirt.virt:
@@ -59,6 +66,6 @@
   until: "vm_start_results is success"
   retries: 15
   delay: 2
-  when: start
+  when: (state == "started")
 
   # when: cleanup_tmp | bool

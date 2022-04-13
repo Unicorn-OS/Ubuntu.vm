@@ -4,9 +4,12 @@
   vars:
     vers: 18.04
 
-  roles:
-  - name: Ubuntu from Cloud Image
-    role: '{{ vers }}/Ubuntu Cloud'
+  tasks:
+    - include_vars: roles/state/Destroy/defaults/main
 
-  - role: state/Destroy
-    tags: des, never
+  roles:
+  - role: 'release/{{ vers }}/Ubuntu Cloud'
+  # tags: always
+
+  # - role: state/Destroy
+  #   tags: [ never, destroy ]

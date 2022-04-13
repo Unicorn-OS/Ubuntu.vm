@@ -1,4 +1,5 @@
 ---
+state: created
 root_disk_size: 64G
 vcpus: 4
 ram_mb: 4096
