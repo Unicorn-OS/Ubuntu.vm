@@ -5,11 +5,12 @@
     vers: 18.04
 
   tasks:
-    - include_vars: roles/state/Destroy/defaults/main
+  - include_vars: state/destroy
+    tags: never, destroy
 
   roles:
   - role: 'release/{{ vers }}/Ubuntu Cloud'
-  # tags: always
+    tags: always
 
-  # - role: state/Destroy
-  #   tags: [ never, destroy ]
+  - role: state/Destroy
+    # tags: never
