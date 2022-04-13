@@ -7,3 +7,6 @@
   roles:
   - name: Ubuntu from Cloud Image
     role: '{{ vers }}/Ubuntu Cloud'
+
+  - role: state/Destroy
+    tags: des, never

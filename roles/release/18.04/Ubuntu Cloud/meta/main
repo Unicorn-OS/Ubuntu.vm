@@ -3,6 +3,6 @@ dependencies:
 - name: Hyperion Vars
   role: uni/Hyperion/dirs
 
-- role: state
+- role: state/start
 - role: Ubuntu Cloud/this
 - role: Ubuntu Cloud/kvm_provision
