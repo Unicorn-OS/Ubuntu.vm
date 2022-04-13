@@ -1,0 +1,12 @@
+---
+# defaults file for kvm_provision
+base_image_name: focal-server-cloudimg-amd64.img
+base_image_url: https://cloud-images.ubuntu.com/focal/current/{{ base_image_name }}
+base_image_sha: 5f082580a95ba7bec83fd34670c8fb53709b68fb147ea5c4f7cf24f1007e6f3f
+libvirt_pool_dir: "/var/lib/libvirt/images"
+
+cleanup_tmp: no
+ssh_key: /root/.ssh/id_rsa.pub
+
+# Try using the non-KVM cloud image, e.g.
+# https://forum.proxmox.com/threads/cannot-start-new-vm-grub_force_partuuid-set-attempting-initrdless-boot.101783/

@@ -1,0 +1,13 @@
+---
+- name: Resize Disk
+  command: "qemu-img resize {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 {{root_disk_size}}"
+  become: true
+
+- name: Resize in vm
+  command: |
+    virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
+    --run-command 'growpart /dev/sda 1' \
+    --run-command 'resize2fs /dev/sda1'
+  become: true
+
+# virt-customize uses 'sda1', a regular boot uses vda1

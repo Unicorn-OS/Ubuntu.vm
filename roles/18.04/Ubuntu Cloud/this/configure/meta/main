@@ -1,0 +1,5 @@
+---
+dependencies:
+- role: 'Network/netplan/{{ interfaces }}'
+- role: Storage/resize disk
+- role: '{{ vers }}/{{ source }}/fix/ssh'

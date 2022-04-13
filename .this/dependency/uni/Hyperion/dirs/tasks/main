@@ -1,0 +1,7 @@
+---
+- name: Create Hyperion directories
+  ansible.builtin.file:
+    path: '{{ item }}'
+    state: directory
+  with_items:
+    - '{{ base_image_dir }}'

@@ -1,0 +1,8 @@
+---
+
+- name: Fix SSH - by purge & reinstall
+  command: |
+    virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
+    --uninstall openssh-server \
+    --install openssh-server
+  become: true

@@ -1,0 +1,2 @@
+---
+base_image_dir: '/home/{{ansible_user}}/.uni/vm/base-img'

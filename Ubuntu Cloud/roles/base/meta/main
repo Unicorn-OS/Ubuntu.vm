@@ -1,5 +1,0 @@
----
-dependencies:
-  - role: netplan
-  - role: ssh fix
-  - role: resize disk

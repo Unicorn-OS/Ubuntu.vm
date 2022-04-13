@@ -1,0 +1,13 @@
+---
+root_disk_size: 64G
+vcpus: 4
+ram_mb: 4096
+eth_nic0: ens2
+vm_root_pass: u
+
+vmNum: 1
+vm: 'ubuntu-{{vers}}-{{ source_name }}-{{vmNum}}'
+cleanup: no
+net: default
+ssh_pub_key: "/home/{{ ansible_user }}/.ssh/id_rsa.pub"
+pool_dir: "/var/lib/libvirt/images"

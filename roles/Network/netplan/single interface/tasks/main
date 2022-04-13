@@ -1,0 +1,12 @@
+---
+
+- name: render Netplan Template
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /tmp/config.yaml
+
+- name: Set Netplan
+  command: |
+    virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
+    --copy-in /tmp/config.yaml:/etc/netplan/
+  become: true
